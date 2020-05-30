@@ -179,23 +179,27 @@ namespace Cat
 		}
 		private void breakToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			txtNotes.Text = "BREAK";
+			txtNotes.Text = Environment.NewLine + Environment.NewLine + "BREAK";
 		}
 		private void lunchDinnerToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			txtNotes.Text = "LUNCH or DINNER";
+			txtNotes.Text = Environment.NewLine + Environment.NewLine + "LUNCH or DINNER";
 		}
 		private void doNowToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			txtNotes.Text = "DO NOW ";
+			txtNotes.Text = Environment.NewLine + Environment.NewLine + "DO NOW ";
 		}
 		private void groupDiscussionToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			txtNotes.Text = "GROUP DISCUSSION ";
+			txtNotes.Text = Environment.NewLine + Environment.NewLine + "DISCUSSION ";
 		}
 		private void exercise11ToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			txtNotes.Text = "HANDS-ON EXERCISE ";
+			txtNotes.Text = Environment.NewLine + Environment.NewLine + "EXERCISE ";
+		}
+		private void toolStripMenuItem1_Click(object sender, EventArgs e)
+		{
+			txtNotes.Text = Environment.NewLine + Environment.NewLine + "ACTIVITY ";
 		}
 		private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
 		{
