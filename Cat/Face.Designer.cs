@@ -48,6 +48,7 @@
 			this.add60MinutesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.stopTimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.activityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.breakToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.lunchDinnerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.doNowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,7 +58,7 @@
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.howToUseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.txtRightNow = new System.Windows.Forms.TextBox();
-			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.startAtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -72,10 +73,9 @@
 			this.txtTimeToGo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtTimeToGo.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.txtTimeToGo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtTimeToGo.Location = new System.Drawing.Point(351, 242);
-			this.txtTimeToGo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.txtTimeToGo.Location = new System.Drawing.Point(526, 372);
 			this.txtTimeToGo.Name = "txtTimeToGo";
-			this.txtTimeToGo.Size = new System.Drawing.Size(80, 37);
+			this.txtTimeToGo.Size = new System.Drawing.Size(120, 37);
 			this.txtTimeToGo.TabIndex = 17;
 			this.txtTimeToGo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.txtTimeToGo.Visible = false;
@@ -85,10 +85,9 @@
 			this.txtEndTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtEndTime.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.txtEndTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtEndTime.Location = new System.Drawing.Point(322, 213);
-			this.txtEndTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.txtEndTime.Location = new System.Drawing.Point(483, 328);
 			this.txtEndTime.Name = "txtEndTime";
-			this.txtEndTime.Size = new System.Drawing.Size(109, 37);
+			this.txtEndTime.Size = new System.Drawing.Size(164, 37);
 			this.txtEndTime.TabIndex = 16;
 			this.txtEndTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.txtEndTime.Visible = false;
@@ -98,8 +97,7 @@
 			this.lblEnd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.lblEnd.AutoSize = true;
 			this.lblEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblEnd.Location = new System.Drawing.Point(263, 213);
-			this.lblEnd.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.lblEnd.Location = new System.Drawing.Point(394, 328);
 			this.lblEnd.Name = "lblEnd";
 			this.lblEnd.Size = new System.Drawing.Size(83, 37);
 			this.lblEnd.TabIndex = 19;
@@ -110,8 +108,7 @@
 			this.lblLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.lblLeft.AutoSize = true;
 			this.lblLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblLeft.Location = new System.Drawing.Point(263, 240);
-			this.lblLeft.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.lblLeft.Location = new System.Drawing.Point(394, 369);
 			this.lblLeft.Name = "lblLeft";
 			this.lblLeft.Size = new System.Drawing.Size(135, 37);
 			this.lblLeft.TabIndex = 20;
@@ -123,11 +120,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtNotes.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.txtNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtNotes.Location = new System.Drawing.Point(271, 36);
-			this.txtNotes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.txtNotes.Location = new System.Drawing.Point(406, 55);
 			this.txtNotes.Multiline = true;
 			this.txtNotes.Name = "txtNotes";
-			this.txtNotes.Size = new System.Drawing.Size(164, 177);
+			this.txtNotes.Size = new System.Drawing.Size(246, 272);
 			this.txtNotes.TabIndex = 27;
 			// 
 			// menuStrip1
@@ -142,8 +138,8 @@
             this.helpToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-			this.menuStrip1.Size = new System.Drawing.Size(443, 31);
+			this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
+			this.menuStrip1.Size = new System.Drawing.Size(664, 33);
 			this.menuStrip1.TabIndex = 29;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
@@ -224,10 +220,18 @@
             this.lunchDinnerToolStripMenuItem,
             this.doNowToolStripMenuItem,
             this.groupDiscussionToolStripMenuItem,
-            this.exercise11ToolStripMenuItem});
+            this.exercise11ToolStripMenuItem,
+            this.startAtToolStripMenuItem});
 			this.activityToolStripMenuItem.Name = "activityToolStripMenuItem";
 			this.activityToolStripMenuItem.Size = new System.Drawing.Size(86, 29);
 			this.activityToolStripMenuItem.Text = "&Activity";
+			// 
+			// toolStripMenuItem1
+			// 
+			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+			this.toolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
+			this.toolStripMenuItem1.Text = "Activity";
+			this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
 			// 
 			// breakToolStripMenuItem
 			// 
@@ -292,26 +296,25 @@
 			this.txtRightNow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtRightNow.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.txtRightNow.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtRightNow.Location = new System.Drawing.Point(263, 8);
-			this.txtRightNow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.txtRightNow.Location = new System.Drawing.Point(394, 12);
 			this.txtRightNow.Name = "txtRightNow";
-			this.txtRightNow.Size = new System.Drawing.Size(164, 37);
+			this.txtRightNow.Size = new System.Drawing.Size(246, 37);
 			this.txtRightNow.TabIndex = 30;
 			this.txtRightNow.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
-			// toolStripMenuItem1
+			// startAtToolStripMenuItem
 			// 
-			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-			this.toolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
-			this.toolStripMenuItem1.Text = "Activity";
-			this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+			this.startAtToolStripMenuItem.Name = "startAtToolStripMenuItem";
+			this.startAtToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+			this.startAtToolStripMenuItem.Text = "&Start At";
+			this.startAtToolStripMenuItem.Click += new System.EventHandler(this.startAtToolStripMenuItem_Click);
 			// 
 			// Face
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.Black;
-			this.ClientSize = new System.Drawing.Size(443, 275);
+			this.ClientSize = new System.Drawing.Size(664, 423);
 			this.Controls.Add(this.txtRightNow);
 			this.Controls.Add(this.txtNotes);
 			this.Controls.Add(this.txtTimeToGo);
@@ -322,7 +325,7 @@
 			this.ForeColor = System.Drawing.Color.White;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MainMenuStrip = this.menuStrip1;
-			this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+			this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
 			this.Name = "Face";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Classroom Clock and Timer";
@@ -363,6 +366,7 @@
 		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem howToUseToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem startAtToolStripMenuItem;
 	}
 }
 

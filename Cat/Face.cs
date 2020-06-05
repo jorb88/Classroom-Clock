@@ -41,19 +41,19 @@ namespace Cat
 			clock.Tick();
 //			txtTimeNow.Text = DateTime.Now.ToLongTimeString().Substring(0,8).Trim();
 			UpdateDigitalTimeDisplay();
-			if (clock.BreakEndTime <= DateTime.Now)
+			if (clock.TimerEndTime <= DateTime.Now)
 			{
 				foreach (Control c in timerControls) c.Visible = false;
 			}
 			else
 			{
-				TimeSpan ttg = clock.BreakEndTime - DateTime.Now;
+				TimeSpan ttg = clock.TimerEndTime - DateTime.Now;
 				string t = ttg.ToString().Substring(0, 8).Trim();
 				if (t.EndsWith(".")) t = t.Substring(0, 7);
 				while (t.StartsWith("0") || t.StartsWith(":"))
 					t = t.Substring(1, t.Length-1);
 				txtTimeToGo.Text = t;
-				t = clock.BreakEndTime.ToLongTimeString().Substring(0, 8).Trim();
+				t = clock.TimerEndTime.ToLongTimeString().Substring(0, 8).Trim();
 				txtEndTime.Text = t;
 			}
 		}
@@ -88,9 +88,9 @@ namespace Cat
 			DateTime endTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, endMin, 0);
 			if (endTime < DateTime.Now) endTime = endTime.AddHours(1.0);
 			TimeSpan timeToGo = endTime.Subtract(DateTime.Now);
-			clock.BreakEndMinute = endMin;
-			clock.BreakEndTime = endTime;
-			clock.BreakHoursToGo = 0;
+			clock.TimerEndMinute = endMin;
+			clock.TimerEndTime = endTime;
+			clock.TimerHoursToGo = 0;
 			foreach (Control c in timerControls) c.Visible = true;
 		}
 		private bool ClickIsOnTheClock(int x, int y)
@@ -162,20 +162,20 @@ namespace Cat
 		}
 		private void add60MinutesToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			clock.BreakHoursToGo++;
-			if (clock.BreakEndTime < DateTime.Now)
+			clock.TimerHoursToGo++;
+			if (clock.TimerEndTime < DateTime.Now)
 			{
-				clock.BreakEndTime = DateTime.Now;
-				clock.BreakEndMinute = DateTime.Now.Minute;
+				clock.TimerEndTime = DateTime.Now;
+				clock.TimerEndMinute = DateTime.Now.Minute;
 			}
-			clock.BreakEndTime = clock.BreakEndTime.AddHours(1);
+			clock.TimerEndTime = clock.TimerEndTime.AddHours(1);
 			foreach (Control c in timerControls) c.Visible = true;
 		}
 		private void stopTimerToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			clock.BreakHoursToGo = 0;
-			clock.BreakEndTime = new DateTime(0);
-			clock.BreakEndMinute = -1;
+			clock.TimerHoursToGo = 0;
+			clock.TimerEndTime = new DateTime(0);
+			clock.TimerEndMinute = -1;
 		}
 		private void breakToolStripMenuItem_Click(object sender, EventArgs e)
 		{
@@ -214,6 +214,12 @@ namespace Cat
 			txtNotes.Text = "Click on any minute to set timer end time." +
 				Environment.NewLine + Environment.NewLine +
 				"Type information notes into here.";
+		}
+
+		private void startAtToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			txtNotes.Text = Environment.NewLine + Environment.NewLine +
+				"WE WILL START AT " + clock.TimerEndTime.ToShortTimeString();
 		}
 	}
 }
