@@ -11,9 +11,9 @@ namespace Cat
 		private DateTime lastTimeShown;
 		private DateTime newTime;
 		private int lastBreakEndMinute = -1;
-		public int BreakEndMinute { get; set; } = -1;
-		public int BreakHoursToGo { get; set; }
-		public DateTime BreakEndTime { get; set; } = new DateTime(0);
+		public int TimerEndMinute { get; set; } = -1;
+		public int TimerHoursToGo { get; set; }
+		public DateTime TimerEndTime { get; set; } = new DateTime(0);
 		public Color ArcColor { get; set; } = Color.Red;
 		public AnalogClock()
 		{
@@ -55,19 +55,19 @@ namespace Cat
 				ClearBreakArc(grfx);
 				DrawHourHand(lastTimeShown, grfx, bpen, bbrush);
 				DrawMinuteHand(lastTimeShown, grfx, bpen, bbrush);
-				if ((BreakEndTime - DateTime.Now).Hours < BreakHoursToGo)
-					BreakHoursToGo--;
+				if ((TimerEndTime - DateTime.Now).Hours < TimerHoursToGo)
+					TimerHoursToGo--;
 			}
 			if (lastTimeShown.Second != newTime.Second)
 			{
 				DrawSecondHand(lastTimeShown, grfx, bpen);
 			}
-			if (BreakEndMinute != lastBreakEndMinute)
+			if (TimerEndMinute != lastBreakEndMinute)
 			{
 				ClearBreakArc(grfx);
-				lastBreakEndMinute = BreakEndMinute;
+				lastBreakEndMinute = TimerEndMinute;
 			}
-			if (BreakEndTime > DateTime.Now) DrawBreakArc(grfx, ArcColor);
+			if (TimerEndTime > DateTime.Now) DrawBreakArc(grfx, ArcColor);
 			DrawHourHand(newTime, grfx, fpen, fbrush);
 			DrawMinuteHand(newTime, grfx, fpen, fbrush);
 			DrawSecondHand(newTime, grfx, fpen);
@@ -121,12 +121,12 @@ namespace Cat
 		private int fudge = -700; // Draw fudge factor
 		protected virtual void DrawBreakArc(Graphics grfx, Color color)
 		{
-			if (BreakEndMinute < 0) return;
+			if (TimerEndMinute < 0) return;
 			Pen p = new Pen(color, 60.0f);
 			float min = newTime.Minute + .5f;
-			if (BreakHoursToGo >= 1) min = BreakEndMinute + .5f;
+			if (TimerHoursToGo >= 1) min = TimerEndMinute + .5f;
 			if (min > 60.0f) min = min - 60.0f;
-			while (BreakEndMinute != min)
+			while (TimerEndMinute != min)
 			{
 				int len = fudge;
 				if (min == (float)newTime.Minute) len = -800;
@@ -135,8 +135,8 @@ namespace Cat
 				if (min >= 60.0f) min = 0.0f;
 			}
 			p = new Pen(ForeColor, 20.0f);
-			DrawArcSegment(grfx, p, fudge, BreakEndMinute);
-			DrawArcSegment(grfx, p, fudge, BreakEndMinute - .2f);
+			DrawArcSegment(grfx, p, fudge, TimerEndMinute);
+			DrawArcSegment(grfx, p, fudge, TimerEndMinute - .2f);
 		}
 		protected virtual void ClearBreakArc(Graphics grfx)
 		{
