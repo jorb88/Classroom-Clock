@@ -60,6 +60,7 @@
 			this.howToUseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.txtTodaysDate = new System.Windows.Forms.TextBox();
 			this.txtRightNow = new System.Windows.Forms.TextBox();
+			this.startAtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -139,6 +140,7 @@
             this.helpToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
+			this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
 			this.menuStrip1.Size = new System.Drawing.Size(664, 33);
 			this.menuStrip1.TabIndex = 29;
 			this.menuStrip1.Text = "menuStrip1";
@@ -226,45 +228,38 @@
 			this.activityToolStripMenuItem.Size = new System.Drawing.Size(86, 29);
 			this.activityToolStripMenuItem.Text = "&Activity";
 			// 
-			// toolStripMenuItem1
-			// 
-			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-			this.toolStripMenuItem1.Size = new System.Drawing.Size(219, 34);
-			this.toolStripMenuItem1.Text = "Activity";
-			this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-			// 
 			// breakToolStripMenuItem
 			// 
 			this.breakToolStripMenuItem.Name = "breakToolStripMenuItem";
-			this.breakToolStripMenuItem.Size = new System.Drawing.Size(219, 34);
+			this.breakToolStripMenuItem.Size = new System.Drawing.Size(253, 34);
 			this.breakToolStripMenuItem.Text = "&Break";
 			this.breakToolStripMenuItem.Click += new System.EventHandler(this.breakToolStripMenuItem_Click);
 			// 
 			// lunchDinnerToolStripMenuItem
 			// 
 			this.lunchDinnerToolStripMenuItem.Name = "lunchDinnerToolStripMenuItem";
-			this.lunchDinnerToolStripMenuItem.Size = new System.Drawing.Size(219, 34);
+			this.lunchDinnerToolStripMenuItem.Size = new System.Drawing.Size(253, 34);
 			this.lunchDinnerToolStripMenuItem.Text = "&Lunch/Dinner";
 			this.lunchDinnerToolStripMenuItem.Click += new System.EventHandler(this.lunchDinnerToolStripMenuItem_Click);
 			// 
 			// doNowToolStripMenuItem
 			// 
 			this.doNowToolStripMenuItem.Name = "doNowToolStripMenuItem";
-			this.doNowToolStripMenuItem.Size = new System.Drawing.Size(219, 34);
+			this.doNowToolStripMenuItem.Size = new System.Drawing.Size(253, 34);
 			this.doNowToolStripMenuItem.Text = "Do Now";
 			this.doNowToolStripMenuItem.Click += new System.EventHandler(this.doNowToolStripMenuItem_Click);
 			// 
 			// groupDiscussionToolStripMenuItem
 			// 
 			this.groupDiscussionToolStripMenuItem.Name = "groupDiscussionToolStripMenuItem";
-			this.groupDiscussionToolStripMenuItem.Size = new System.Drawing.Size(219, 34);
-			this.groupDiscussionToolStripMenuItem.Text = "Discussion";
+			this.groupDiscussionToolStripMenuItem.Size = new System.Drawing.Size(253, 34);
+			this.groupDiscussionToolStripMenuItem.Text = "Group Discussion";
 			this.groupDiscussionToolStripMenuItem.Click += new System.EventHandler(this.groupDiscussionToolStripMenuItem_Click);
 			// 
 			// exercise11ToolStripMenuItem
 			// 
 			this.exercise11ToolStripMenuItem.Name = "exercise11ToolStripMenuItem";
-			this.exercise11ToolStripMenuItem.Size = new System.Drawing.Size(219, 34);
+			this.exercise11ToolStripMenuItem.Size = new System.Drawing.Size(253, 34);
 			this.exercise11ToolStripMenuItem.Text = "Exercise";
 			this.exercise11ToolStripMenuItem.Click += new System.EventHandler(this.exercise11ToolStripMenuItem_Click);
 			// 
@@ -314,11 +309,18 @@
 			this.txtRightNow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtRightNow.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.txtRightNow.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtRightNow.Location = new System.Drawing.Point(394, 35);
+			this.txtRightNow.Location = new System.Drawing.Point(395, 12);
 			this.txtRightNow.Name = "txtRightNow";
 			this.txtRightNow.Size = new System.Drawing.Size(246, 37);
 			this.txtRightNow.TabIndex = 31;
 			this.txtRightNow.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			// 
+			// startAtToolStripMenuItem
+			// 
+			this.startAtToolStripMenuItem.Name = "startAtToolStripMenuItem";
+			this.startAtToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+			this.startAtToolStripMenuItem.Text = "&Start At";
+			this.startAtToolStripMenuItem.Click += new System.EventHandler(this.startAtToolStripMenuItem_Click);
 			// 
 			// Face
 			// 
@@ -377,9 +379,6 @@
 		private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem howToUseToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-		private System.Windows.Forms.ToolStripMenuItem startAtToolStripMenuItem;
-		private System.Windows.Forms.TextBox txtRightNow;
 	}
 }
 

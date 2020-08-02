@@ -40,8 +40,7 @@ namespace Cat
 		{
 			clock.Tick();
 			UpdateDigitalTimeDisplay();
-			txtTodaysDate.Text = DateTime.Now.ToLongDateString();
-			if (clock.TimerEndTime <= DateTime.Now)
+			if (clock.BreakEndTime <= DateTime.Now)
 			{
 				foreach (Control c in timerControls) c.Visible = false;
 			}
