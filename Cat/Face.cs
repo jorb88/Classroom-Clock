@@ -48,6 +48,8 @@ namespace Cat
 			else
 			{
 				TimeSpan ttg = clock.TimerEndTime - DateTime.Now;
+				TimeSpan oneSec = new TimeSpan(0, 0, 1);
+				ttg = ttg.Add(oneSec);
 				string t = ttg.ToString().Substring(0, 8).Trim();
 				if (t.EndsWith(".")) t = t.Substring(0, 7);
 				while (t.StartsWith("0") || t.StartsWith(":"))
