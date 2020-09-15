@@ -303,9 +303,9 @@
 			this.txtTodaysDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtTodaysDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.txtTodaysDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtTodaysDate.Location = new System.Drawing.Point(360, 6);
+			this.txtTodaysDate.Location = new System.Drawing.Point(354, 6);
 			this.txtTodaysDate.Name = "txtTodaysDate";
-			this.txtTodaysDate.Size = new System.Drawing.Size(279, 23);
+			this.txtTodaysDate.Size = new System.Drawing.Size(294, 23);
 			this.txtTodaysDate.TabIndex = 30;
 			this.txtTodaysDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
@@ -314,9 +314,9 @@
 			this.txtRightNow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtRightNow.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.txtRightNow.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtRightNow.Location = new System.Drawing.Point(394, 35);
+			this.txtRightNow.Location = new System.Drawing.Point(389, 36);
 			this.txtRightNow.Name = "txtRightNow";
-			this.txtRightNow.Size = new System.Drawing.Size(246, 37);
+			this.txtRightNow.Size = new System.Drawing.Size(257, 37);
 			this.txtRightNow.TabIndex = 31;
 			this.txtRightNow.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
