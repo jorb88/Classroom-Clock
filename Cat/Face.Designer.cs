@@ -44,9 +44,17 @@
 			this.colorSchemesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.arcColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.timerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.add60MinutesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.stopTimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+			this.addMinutesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+			this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.activityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.breakToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,9 +94,9 @@
 			this.txtEndTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtEndTime.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.txtEndTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtEndTime.Location = new System.Drawing.Point(483, 328);
+			this.txtEndTime.Location = new System.Drawing.Point(504, 328);
 			this.txtEndTime.Name = "txtEndTime";
-			this.txtEndTime.Size = new System.Drawing.Size(164, 37);
+			this.txtEndTime.Size = new System.Drawing.Size(143, 37);
 			this.txtEndTime.TabIndex = 16;
 			this.txtEndTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.txtEndTime.Visible = false;
@@ -100,9 +108,9 @@
 			this.lblEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lblEnd.Location = new System.Drawing.Point(394, 328);
 			this.lblEnd.Name = "lblEnd";
-			this.lblEnd.Size = new System.Drawing.Size(83, 37);
+			this.lblEnd.Size = new System.Drawing.Size(119, 37);
 			this.lblEnd.TabIndex = 19;
-			this.lblEnd.Text = "End:";
+			this.lblEnd.Text = "End at:";
 			// 
 			// lblLeft
 			// 
@@ -134,7 +142,7 @@
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.prefsToolStripMenuItem,
-            this.timerToolStripMenuItem,
+            this.toolStripMenuItem2,
             this.activityToolStripMenuItem,
             this.helpToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -189,28 +197,90 @@
 			this.resetToolStripMenuItem.Text = "&Reset";
 			this.resetToolStripMenuItem.Click += new System.EventHandler(this.resetToolStripMenuItem_Click);
 			// 
-			// timerToolStripMenuItem
+			// toolStripMenuItem2
 			// 
-			this.timerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.add60MinutesToolStripMenuItem,
-            this.stopTimerToolStripMenuItem});
-			this.timerToolStripMenuItem.Name = "timerToolStripMenuItem";
-			this.timerToolStripMenuItem.Size = new System.Drawing.Size(72, 29);
-			this.timerToolStripMenuItem.Text = "&Timer";
+			this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addMinutesToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.stopToolStripMenuItem});
+			this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+			this.toolStripMenuItem2.Size = new System.Drawing.Size(72, 29);
+			this.toolStripMenuItem2.Text = "&Timer";
 			// 
-			// add60MinutesToolStripMenuItem
+			// addMinutesToolStripMenuItem
 			// 
-			this.add60MinutesToolStripMenuItem.Name = "add60MinutesToolStripMenuItem";
-			this.add60MinutesToolStripMenuItem.Size = new System.Drawing.Size(241, 34);
-			this.add60MinutesToolStripMenuItem.Text = "&Add 60 Minutes";
-			this.add60MinutesToolStripMenuItem.Click += new System.EventHandler(this.add60MinutesToolStripMenuItem_Click);
+			this.addMinutesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem4,
+            this.toolStripMenuItem5,
+            this.toolStripMenuItem6,
+            this.toolStripMenuItem7,
+            this.toolStripMenuItem8,
+            this.toolStripMenuItem9,
+            this.toolStripMenuItem10});
+			this.addMinutesToolStripMenuItem.Name = "addMinutesToolStripMenuItem";
+			this.addMinutesToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+			this.addMinutesToolStripMenuItem.Text = "&Add Minutes";
 			// 
-			// stopTimerToolStripMenuItem
+			// toolStripMenuItem4
 			// 
-			this.stopTimerToolStripMenuItem.Name = "stopTimerToolStripMenuItem";
-			this.stopTimerToolStripMenuItem.Size = new System.Drawing.Size(241, 34);
-			this.stopTimerToolStripMenuItem.Text = "&Stop Timer";
-			this.stopTimerToolStripMenuItem.Click += new System.EventHandler(this.stopTimerToolStripMenuItem_Click);
+			this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+			this.toolStripMenuItem4.Size = new System.Drawing.Size(134, 34);
+			this.toolStripMenuItem4.Text = "1";
+			this.toolStripMenuItem4.Click += new System.EventHandler(this.addMinutes_Click);
+			// 
+			// toolStripMenuItem5
+			// 
+			this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+			this.toolStripMenuItem5.Size = new System.Drawing.Size(134, 34);
+			this.toolStripMenuItem5.Text = "2";
+			this.toolStripMenuItem5.Click += new System.EventHandler(this.addMinutes_Click);
+			// 
+			// toolStripMenuItem6
+			// 
+			this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+			this.toolStripMenuItem6.Size = new System.Drawing.Size(134, 34);
+			this.toolStripMenuItem6.Text = "5";
+			this.toolStripMenuItem6.Click += new System.EventHandler(this.addMinutes_Click);
+			// 
+			// toolStripMenuItem7
+			// 
+			this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+			this.toolStripMenuItem7.Size = new System.Drawing.Size(134, 34);
+			this.toolStripMenuItem7.Text = "10";
+			this.toolStripMenuItem7.Click += new System.EventHandler(this.addMinutes_Click);
+			// 
+			// toolStripMenuItem8
+			// 
+			this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+			this.toolStripMenuItem8.Size = new System.Drawing.Size(134, 34);
+			this.toolStripMenuItem8.Text = "15";
+			this.toolStripMenuItem8.Click += new System.EventHandler(this.addMinutes_Click);
+			// 
+			// toolStripMenuItem9
+			// 
+			this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+			this.toolStripMenuItem9.Size = new System.Drawing.Size(134, 34);
+			this.toolStripMenuItem9.Text = "30";
+			this.toolStripMenuItem9.Click += new System.EventHandler(this.addMinutes_Click);
+			// 
+			// toolStripMenuItem10
+			// 
+			this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+			this.toolStripMenuItem10.Size = new System.Drawing.Size(134, 34);
+			this.toolStripMenuItem10.Text = "60";
+			this.toolStripMenuItem10.Click += new System.EventHandler(this.addMinutes_Click);
+			// 
+			// toolStripSeparator1
+			// 
+			this.toolStripSeparator1.Name = "toolStripSeparator1";
+			this.toolStripSeparator1.Size = new System.Drawing.Size(267, 6);
+			// 
+			// stopToolStripMenuItem
+			// 
+			this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
+			this.stopToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+			this.stopToolStripMenuItem.Text = "Stop";
+			this.stopToolStripMenuItem.Click += new System.EventHandler(this.stopToolStripMenuItem_Click);
 			// 
 			// activityToolStripMenuItem
 			// 
@@ -365,9 +435,6 @@
 		private System.Windows.Forms.ToolStripMenuItem arcColorToolStripMenuItem;
 		private System.Windows.Forms.TextBox txtTodaysDate;
 		private System.Windows.Forms.ToolStripMenuItem resetToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem timerToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem add60MinutesToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem stopTimerToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem activityToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem breakToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem lunchDinnerToolStripMenuItem;
@@ -380,6 +447,17 @@
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
 		private System.Windows.Forms.ToolStripMenuItem startAtToolStripMenuItem;
 		private System.Windows.Forms.TextBox txtRightNow;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+		private System.Windows.Forms.ToolStripMenuItem addMinutesToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+		private System.Windows.Forms.ToolStripMenuItem stopToolStripMenuItem;
 	}
 }
 

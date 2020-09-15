@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Drawing.Text;
 using System.Windows.Forms;
 
 namespace Cat
@@ -11,9 +10,21 @@ namespace Cat
 		private DateTime lastTimeShown;
 		private DateTime newTime;
 		private int lastBreakEndMinute = -1;
-		public int TimerEndMinute { get; set; } = -1;
-		public int TimerHoursToGo { get; set; }
-		public DateTime TimerEndTime { get; set; } = new DateTime(0);
+		private int timerEndMinute = -1;
+		private int hoursToGo = 0;
+		private DateTime timerEndTime = new DateTime(0);
+		public DateTime TimerEndTime
+		{
+			get { return timerEndTime; }
+			set
+			{
+				timerEndTime = value;
+				int sec = timerEndTime.Second;
+				if (sec == 0) return;
+				if (sec < 30) timerEndTime = timerEndTime.AddSeconds(-sec);
+				else timerEndTime = timerEndTime.AddSeconds(60 - sec);
+			}
+		}
 		public Color ArcColor { get; set; } = Color.Red;
 		public AnalogClock()
 		{
@@ -25,6 +36,8 @@ namespace Cat
 			Brush bbrush = new SolidBrush(BackColor);
 			lastTimeShown = new DateTime(0);
 			newTime = DateTime.Now;
+			lastBreakEndMinute = -1;
+			timerEndMinute = -1;
 			ResizeRedraw = true;
 			Enabled = false;
 			grfx.Dispose();
@@ -41,6 +54,16 @@ namespace Cat
 			Graphics grfx = CreateGraphics();
 			InitializeCoordinates(grfx);
 			newTime = DateTime.Now;
+			if (timerEndTime < newTime)
+			{
+				timerEndMinute = -1;
+				hoursToGo = 0;
+			}
+			else
+			{
+				timerEndMinute = timerEndTime.Minute;
+				hoursToGo = (timerEndTime - DateTime.Now).Hours;
+			}
 			Pen bpen = new Pen(BackColor);
 			Pen fpen = new Pen(ForeColor);
 			Brush fbrush = new SolidBrush(ForeColor);
@@ -51,23 +74,20 @@ namespace Cat
 			}
 			if (lastTimeShown.Minute != newTime.Minute)
 			{
-				//if (PeriodEndMinute != lastPeriodEndMinute)
 				ClearBreakArc(grfx);
 				DrawHourHand(lastTimeShown, grfx, bpen, bbrush);
 				DrawMinuteHand(lastTimeShown, grfx, bpen, bbrush);
-				if ((TimerEndTime - DateTime.Now).Hours < TimerHoursToGo)
-					TimerHoursToGo--;
 			}
 			if (lastTimeShown.Second != newTime.Second)
 			{
 				DrawSecondHand(lastTimeShown, grfx, bpen);
 			}
-			if (TimerEndMinute != lastBreakEndMinute)
+			if (timerEndMinute != lastBreakEndMinute)
 			{
 				ClearBreakArc(grfx);
-				lastBreakEndMinute = TimerEndMinute;
+				lastBreakEndMinute = timerEndMinute;
 			}
-			if (TimerEndTime > DateTime.Now) DrawBreakArc(grfx, ArcColor);
+			if (timerEndTime > DateTime.Now) DrawBreakArc(grfx, ArcColor);
 			DrawHourHand(newTime, grfx, fpen, fbrush);
 			DrawMinuteHand(newTime, grfx, fpen, fbrush);
 			DrawSecondHand(newTime, grfx, fpen);
@@ -121,12 +141,18 @@ namespace Cat
 		private int fudge = -700; // Draw fudge factor
 		protected virtual void DrawBreakArc(Graphics grfx, Color color)
 		{
-			if (TimerEndMinute < 0) return;
+			if (timerEndMinute < 0) return;
+			//if ((timerEndSecond != 0) && (hoursToGo < 1))
+			//{
+			//	TimeSpan remaining = TimerEndTime - DateTime.Now;
+			//	if (remaining.Seconds < timerEndSecond)
+			//		return;
+			//}
 			Pen p = new Pen(color, 60.0f);
 			float min = newTime.Minute + .5f;
-			if (TimerHoursToGo >= 1) min = TimerEndMinute + .5f;
+			if (hoursToGo >= 1) min = timerEndMinute + .5f;
 			if (min > 60.0f) min = min - 60.0f;
-			while (TimerEndMinute != min)
+			while (timerEndMinute != min)
 			{
 				int len = fudge;
 				if (min == (float)newTime.Minute) len = -800;
@@ -135,12 +161,11 @@ namespace Cat
 				if (min >= 60.0f) min = 0.0f;
 			}
 			p = new Pen(ForeColor, 20.0f);
-			DrawArcSegment(grfx, p, fudge, TimerEndMinute);
-			DrawArcSegment(grfx, p, fudge, TimerEndMinute - .2f);
+			DrawArcSegment(grfx, p, fudge, timerEndMinute);
+			DrawArcSegment(grfx, p, fudge, timerEndMinute - .2f);
 		}
 		protected virtual void ClearBreakArc(Graphics grfx)
 		{
-//			if (BreakHoursToGo > 0) return;
 			Pen p = new Pen(BackColor, 60.0f);
 			for (int min = 0; min < 120; min++)
 			{

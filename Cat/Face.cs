@@ -90,9 +90,8 @@ namespace Cat
 			DateTime endTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, endMin, 0);
 			if (endTime < DateTime.Now) endTime = endTime.AddHours(1.0);
 			TimeSpan timeToGo = endTime.Subtract(DateTime.Now);
-			clock.TimerEndMinute = endMin;
+			//clock.TimerEndMinute = endMin;
 			clock.TimerEndTime = endTime;
-			clock.TimerHoursToGo = 0;
 			foreach (Control c in timerControls) c.Visible = true;
 		}
 		private bool ClickIsOnTheClock(int x, int y)
@@ -162,23 +161,6 @@ namespace Cat
 			SetColor(prefs.Data.BackColor, prefs.Data.ForeColor);
 			clock.ArcColor = prefs.Data.ArcColor;
 		}
-		private void add60MinutesToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			clock.TimerHoursToGo++;
-			if (clock.TimerEndTime < DateTime.Now)
-			{
-				clock.TimerEndTime = DateTime.Now;
-				clock.TimerEndMinute = DateTime.Now.Minute;
-			}
-			clock.TimerEndTime = clock.TimerEndTime.AddHours(1);
-			foreach (Control c in timerControls) c.Visible = true;
-		}
-		private void stopTimerToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			clock.TimerHoursToGo = 0;
-			clock.TimerEndTime = new DateTime(0);
-			clock.TimerEndMinute = -1;
-		}
 		private void breakToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			txtNotes.Text = Environment.NewLine + Environment.NewLine + "BREAK";
@@ -217,11 +199,37 @@ namespace Cat
 				Environment.NewLine + Environment.NewLine +
 				"Type information notes into here.";
 		}
-
 		private void startAtToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			txtNotes.Text = Environment.NewLine + Environment.NewLine +
 				"WE WILL START AT " + clock.TimerEndTime.ToShortTimeString();
+		}
+		private void AddMinutes(string text)
+		{
+			int minutes = int.Parse(text);
+			AddMinutes(minutes);
+		}
+		private void AddMinutes(int minutes)
+		{
+			if (clock.TimerEndTime < DateTime.Now)
+			{
+				clock.TimerEndTime = DateTime.Now;
+			}
+			clock.TimerEndTime = clock.TimerEndTime.AddMinutes(minutes);
+			foreach (Control c in timerControls) c.Visible = true;
+		}
+		private void addMinutes_Click(object sender, EventArgs e)
+		{
+			ToolStripMenuItem mi = (ToolStripMenuItem)sender;
+			AddMinutes(mi.Text);
+		}
+		private void stopToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			clock.TimerEndTime = new DateTime(0);
+		}
+		private void add24HoursToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			AddMinutes(60 * 24);
 		}
 	}
 }
