@@ -2,6 +2,9 @@
 using System.Windows.Forms;
 using System.Drawing;
 using System.Reflection;
+using System.Media;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Cat
 {
@@ -17,7 +20,6 @@ namespace Cat
 			InitializeComponent();
 			timerControls = new Control[] { txtEndTime, lblEnd, txtTimeToGo, lblLeft};
 			colorControls = new Control[] { txtTodaysDate, txtRightNow, this, menuStrip1, txtTimeToGo, txtEndTime, clock, lblEnd, lblLeft, txtNotes };
-//			txtTimeNow.Text = string.Empty;
 			txtTimeToGo.Text = string.Empty;
 			clock.Location = new Point(10, 17);
 			clock.Width = this.Height - 64;
@@ -35,15 +37,25 @@ namespace Cat
 			txtTodaysDate.TextAlign = HorizontalAlignment.Right;
 			timer1.Start();
 			ratio = (double) this.Height / (double)this.Width;
+			txtTodaysDate.Font = fileToolStripMenuItem.Font;
+			toolStripMenuItem3.Checked = prefs.Data.PlayBeep;
 		}
-		private void timer1_Tick(object sender, EventArgs e)
+		private async void timer1_Tick(object sender, EventArgs e)
 		{
 			clock.Tick();
 			UpdateDigitalTimeDisplay();
 			txtTodaysDate.Text = DateTime.Now.ToLongDateString();
 			if (clock.TimerEndTime <= DateTime.Now)
 			{
-				foreach (Control c in timerControls) c.Visible = false;
+				if (timerControls[0].Visible)
+				{
+					foreach (Control c in timerControls) c.Visible = false;
+					if (prefs.Data.PlayBeep)
+					{
+						Action playBeep = new Action(PlayBeep);
+						await Task.Run(playBeep);
+					}
+				}
 			}
 			else
 			{
@@ -59,6 +71,16 @@ namespace Cat
 				txtEndTime.Text = t;
 			}
 		}
+
+		private void PlayBeep()
+		{
+			for (int i = 0; i < 3; i++)
+			{
+				SystemSounds.Beep.Play();
+				Thread.Sleep(1000);
+			}
+		}
+
 		private void UpdateDigitalTimeDisplay()
 		{
 			float xClockCenter = clock.Width / 2.0f + clock.Location.X;
@@ -154,12 +176,19 @@ namespace Cat
 			clock.ArcColor = dc.Color;
 			prefs.Save();
 		}
+		private void enableBeeping_Click(object sender, EventArgs e)
+		{
+			prefs.Data.PlayBeep = !prefs.Data.PlayBeep;
+			toolStripMenuItem3.Checked = prefs.Data.PlayBeep;
+			prefs.Save();
+		}
 		private void resetToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			prefs.DeletePrefsFile();
 			prefs = new PrefsManager<ClockPrefs>();
 			SetColor(prefs.Data.BackColor, prefs.Data.ForeColor);
 			clock.ArcColor = prefs.Data.ArcColor;
+			toolStripMenuItem3.Checked = prefs.Data.PlayBeep;
 		}
 		private void breakToolStripMenuItem_Click(object sender, EventArgs e)
 		{
@@ -225,11 +254,8 @@ namespace Cat
 		}
 		private void stopToolStripMenuItem_Click(object sender, EventArgs e)
 		{
+			foreach (Control c in timerControls) c.Visible = false;
 			clock.TimerEndTime = new DateTime(0);
-		}
-		private void add24HoursToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			AddMinutes(60 * 24);
 		}
 	}
 }
